@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MauiApp1.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MauiApp1"
+    Shell.FlyoutBehavior="Disabled"
+    Title="jopa"
+    Shell.TabBarBackgroundColor="Purple"
+    Shell.FlyoutHeight="10"
+    CurrentItem="{x:Reference Main}"
+    Shell.NavBarIsVisible="False">
+
+    <Shell.Resources>
+        <Style TargetType="TabBar">
+            <Setter Property="Shell.TabBarBackgroundColor" Value="MediumPurple"/>
+            <Setter Property="Shell.TabBarIsVisible" Value="True"/>
+        </Style>
+    </Shell.Resources>
+
+
+
+    <Shell.MenuItemTemplate>
+        <DataTemplate>
+            <Grid ColumnDefinitions="0.1*,0.5*">
+                <Image Source="{Binding FlyoutIcon}"
+                       Margin="5"
+                       HeightRequest="45" />
+                <Label Grid.Column="1"
+                       Text="{Binding Title}"
+                       FontAttributes="Italic"
+                       VerticalTextAlignment="Center"
+                       FontSize="15"/>
+            </Grid>
+        </DataTemplate>
+    </Shell.MenuItemTemplate>
+
+    
+    
+    <TabBar>
+        <Tab Title="Main">
+            <ShellContent
+            Title="Main"
+            ContentTemplate="{DataTemplate local:MainPage}"
+            Route="MainPage" />
+        </Tab>
+        <Tab Title="Tasks">
+            <ShellContent Title="AllTask" ContentTemplate="{DataTemplate local:WorkTaskPage}"/>
+            <ShellContent Title="MatrixEisenhower" ContentTemplate="{DataTemplate local:MatrixEisenhowerPage}"/>
+        </Tab>
+        
+        <ShellContent Title="Notes" ContentTemplate="{DataTemplate local:NotesPage}"/>
+    </TabBar>
+
+</Shell>

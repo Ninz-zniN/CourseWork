@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.MainPage"
+             Appearing="ContentPage_Appearing">
+
+    <ScrollView>
+        <Grid
+            RowSpacing="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.8*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="0.65*"/>
+            </Grid.RowDefinitions>
+
+            <Border BackgroundColor="LightPink" Margin="10,5,10,5">
+                <CollectionView x:Name="CurrentTask" Margin="1">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="2" Background="AliceBlue" VerticalOptions="Fill">
+                                <StackLayout Margin="10, 5, 10 , 5">
+                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
+                                </StackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+            <Border Grid.Row="1" BackgroundColor="DarkSlateBlue" Margin="10,0,10,0" StrokeThickness="1">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="Создать заметку" FontSize="22" BackgroundColor="Transparent" CornerRadius="0" TextColor="White" Clicked="BtnCreateNoteClicked"/>
+                    <Button Grid.Column="1" Text="+" FontSize="40" CornerRadius="15" BackgroundColor="LightGreen" Clicked="BtnCreateQuickNoteClicked"/>
+                </Grid>
+            </Border>
+            <Border Grid.Row="2" Background="Aquamarine" Margin="10,5,10,5">
+                <Border.StrokeShape>
+                    <RoundRectangle CornerRadius="15" />
+                </Border.StrokeShape>
+                <CollectionView x:Name="OtherTasks">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="2" Background="AliceBlue">
+                                <StackLayout Margin="10, 5, 10 , 8">
+                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
+                                </StackLayout>
+                            </Border>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </Border>
+
+            <Grid x:Name="MenuBtn" Grid.Row="3">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Button
+                    Text="профиль"/>
+                <Button
+                    Text="дела"
+                    Grid.Column="1"
+                    Clicked="BtnTasksClicked"/>
+                <Button
+                    Text="основное меню"
+                    Grid.Column="2"/>
+                <Button
+                    Text="напоминания"
+                    Grid.Column="3"/>
+                <Button
+                    Text="заметки"
+                    Grid.Column="4"/>
+            </Grid>
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

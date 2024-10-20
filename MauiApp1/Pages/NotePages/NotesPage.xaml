@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.NotesPage"
+             Appearing="ContentPage_Appearing">
+    
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="6*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="1" BackgroundColor="LightPink" Margin="10,5,10,5">
+            <Grid x:Name="ViewNotes">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <CollectionView x:Name="CollectionNotes" Margin="1" SelectionMode="Single" SelectionChanged="CollectionNotes_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="2" Background="AliceBlue" VerticalOptions="Fill" HeightRequest="105">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.89*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <Border BackgroundColor="{Binding HeaderColor}" StrokeShape="{RoundRectangle CornerRadius=5}">
+                                        <Label VerticalOptions="Center" Margin="10, 0, 0 , 0" Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    </Border>
+                                    <Label Grid.Row="1" Margin="10,0,0,0" Text="{Binding Description}" TextColor="DarkBlue" FontSize="16" MaximumHeightRequest="90"/>
+                                    <Label HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0" Text="{Binding Group}" TextColor="DarkBlue"/>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <CollectionView Grid.Column="1" x:Name="CollectionNotes1" Margin="1" SelectionMode="Single" SelectionChanged="CollectionNotes_SelectionChanged">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Border Margin="2" Background="AliceBlue" VerticalOptions="Fill" HeightRequest="105">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="0.89*"/>
+                                        <RowDefinition Height="2*"/>
+                                    </Grid.RowDefinitions>
+                                    <Border BackgroundColor="{Binding HeaderColor}" StrokeShape="{RoundRectangle CornerRadius=5}">
+                                        <Label VerticalOptions="Center" Margin="10, 0, 0 , 0" Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    </Border>
+                                    <Label Grid.Row="1" Margin="10,0,0,0" Text="{Binding Description}" TextColor="DarkBlue" FontSize="16" MaximumHeightRequest="90"/>
+                                    <Label HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,10,0" Text="{Binding Group}" TextColor="DarkBlue"/>
+                                </Grid>
+                            </Border>
+
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button Grid.Column="1" Text="+" FontSize="26" Clicked="BtnAddCLicked" HorizontalOptions="End" VerticalOptions="End" CornerRadius="180" HeightRequest="70" WidthRequest="70" Margin="0,0,15,15" BackgroundColor="ForestGreen"/>
+            </Grid>
+        </Border>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.5*"/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Управление группами" Margin="10,5,5,0" Clicked="BtnGroupClicked"/>
+            <Border Grid.Column="1" BackgroundColor="BlueViolet" Margin="0,5,10,0">
+                <Picker x:Name="FilterGroup" VerticalOptions="Fill" HorizontalOptions="Fill" SelectedIndexChanged="FilterGroup_SelectedIndexChanged"/>
+            </Border>
+        </Grid>
+        
+    </Grid>
+</ContentPage>

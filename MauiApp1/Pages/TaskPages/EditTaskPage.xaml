@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.EditTaskPage"
+             Title="EditTaskPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.35*"/>
+        </Grid.RowDefinitions>
+        <Border Background="Pink" Margin="10">
+            <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
+        </Border>
+        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+            <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
+        </Border>
+        <Border Margin="10,0,10,2" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.38*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Label Text="Важность дела" Grid.ColumnSpan="3" HorizontalOptions="Center" VerticalOptions="Start" FontSize="15" FontAttributes="Bold"/>
+                <RadioButton x:Name="Max" GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Важно" Grid.Column="2" Grid.Row="1"/>
+                <RadioButton x:Name="Medium" GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Средне" Grid.Column="1" Grid.Row="1"/>
+                <RadioButton x:Name="Min" GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Неважно" Grid.Row="1"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Margin="10,0,10,2">
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Введите крайнюю дату сдачи" VerticalOptions="Center" FontSize="15"/>
+                <DatePicker x:Name="DateDeadLine" VerticalOptions="Start" FontSize="18"/>
+                <TimePicker x:Name="TimeDeadLine" VerticalOptions="Start" FontSize="18"/>
+            </HorizontalStackLayout>
+        </Border>
+
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Назад" FontSize="13" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="Gray"/>
+            <Button Text="Удалить" FontSize="13" Clicked="BtnDeleteClicked" Grid.Column="1" Margin="3,3,3,8" BackgroundColor="DarkRed"/>
+            <Button Text="✓ Выполнитьдело" FontSize="10" x:Name="Complete" Clicked="BtnCompleteClicked" Grid.Column="2" Margin="3,3,10,8" BackgroundColor="Green"/>
+        </Grid>
+    </Grid>
+</ContentPage>

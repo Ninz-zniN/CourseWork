@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.WorkTaskPage"
+             Appearing="ContentPage_Appearing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.07*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <HorizontalStackLayout HorizontalOptions="End">
+            <Label Text="Только&#10;невыполненные" VerticalOptions="Center"/>
+            <CheckBox x:Name="CB_OnlyNotCompleted" CheckedChanged="CheckBox_CheckedChanged" VerticalOptions="End"/>
+            <Picker x:Name="PickerFilter" Title="Фильтрация" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Сегодня</x:String>
+                    <x:String>На этой неделе</x:String>
+                    <x:String>В этом месяце</x:String>
+                </Picker.Items>
+            </Picker>
+            <Picker x:Name="PickerSort" Title="Сортировка" SelectedIndexChanged="Picker_SelectedIndexChanged">
+                <Picker.Items>
+                    <x:String>Срочность</x:String>
+                    <x:String>Важность</x:String>
+                </Picker.Items>
+            </Picker>
+        </HorizontalStackLayout>
+
+        <CollectionView Grid.Row="1" x:Name="CollectionTasks" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Margin="2" Background="AliceBlue">
+                        <Grid Margin="10, 5, 10 , 8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                            <Label Grid.Column="1" Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16" HorizontalOptions="End"/>
+                            <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
+                            <HorizontalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End">
+                                <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                            
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Button Grid.Row="1" Text="+" FontSize="26" Clicked="BtnAddCLicked" HorizontalOptions="End" VerticalOptions="End" CornerRadius="180" HeightRequest="70" WidthRequest="70" Margin="0,0,15,15" BackgroundColor="ForestGreen"/>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.CreateTaskPage"
+             Title="CreateTaskPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="0.45*"/>
+        </Grid.RowDefinitions>
+        <Border Background="Pink" Margin="10">
+            <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
+        </Border>
+        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+            <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
+        </Border>
+        <Border Margin="10" Grid.Row="2">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <RadioButton GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Важно" Grid.Column="2"/>
+                <RadioButton GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Средне" Grid.Column="1"/>
+                <RadioButton GroupName="Importance" CheckedChanged="RadioButton_CheckedChanged" Content="Неважно" />
+            </Grid>
+        </Border>
+        <Border Grid.Row="3">
+            <HorizontalStackLayout VerticalOptions="Center">
+                <Label Text="Введите крайнюю дату сдачи" VerticalOptions="Center" FontSize="15"/>
+                <DatePicker x:Name="DateDeadLine" VerticalOptions="Start" FontSize="18"/>
+                <TimePicker x:Name="TimeDeadLine" VerticalOptions="Start" FontSize="18"/>
+            </HorizontalStackLayout>
+            
+        </Border>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Отменить" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="DarkRed"/>
+            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" Margin="3,3,10,8" BackgroundColor="Green"/>
+        </Grid>
+    </Grid>
+</ContentPage>

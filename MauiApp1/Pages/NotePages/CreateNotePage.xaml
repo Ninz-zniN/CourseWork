@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.CreateNotePage"
+             Title="CreateNotePage">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.65*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="0.4*"/>
+            <RowDefinition Height="0.45*"/>
+        </Grid.RowDefinitions>
+        <Border Background="Pink" Margin="10">
+            <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
+        </Border>
+        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+            <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
+        </Border>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border Background="Pink" Margin="10,5,5,5">
+                <Picker x:Name="GroupPicker" SelectedIndexChanged="GroupPicker_SelectedIndexChanged"/>
+            </Border>
+            <Border Background="Pink" Margin="5,5,10,5" Grid.Column="1">
+                <Picker x:Name="ColorPicker" Grid.Column="1" SelectedIndexChanged="ColorPicker_SelectedIndexChanged"/>
+            </Border>
+        </Grid>
+        <Grid Grid.Row="3">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Отменить" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="DarkRed"/>
+            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" Margin="3,3,10,8" BackgroundColor="Green"/>
+        </Grid>
+    </Grid>
+</ContentPage>

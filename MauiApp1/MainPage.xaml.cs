@@ -7,14 +7,17 @@ namespace MauiApp1
 {
     public partial class MainPage : ContentPage
     {
+        public static int LastIdNotification = 1;
         static List<WorkTask> tasks = new List<WorkTask>();
         static List<Note> notes = new List<Note>();
         static Dictionary<string, Color> colorsDict = new Dictionary<string, Color> { { "красный", Colors.Red }, { "зеленый", Colors.Green }, { "синий", Colors.Blue } };
         static List<string> groups = new List<string>{ "da", "da1", "da2" };
+        static List<Reminder> reminders = new List<Reminder>();
         public static List<WorkTask> Tasks { get { return tasks; } }
         public static List<Note> Notes { get { return notes; } }
         public static Dictionary<string, Color> ColorsDict { get { return colorsDict; } }
         public static List<string> Groups { get { return groups; } }
+        public static List<Reminder> Reminders { get { return reminders; } }
 
         public MainPage()
         {
@@ -60,7 +63,8 @@ namespace MauiApp1
                 CategoryType = NotificationCategoryType.Reminder,
                 Schedule = new NotificationRequestSchedule()
                 {
-                    NotifyTime = DateTime.Now.AddSeconds(10)
+                    NotifyTime = DateTime.Now.AddSeconds(10),
+                    RepeatType = NotificationRepeat.Weekly
                 },
                 Android = new AndroidOptions()
                 {

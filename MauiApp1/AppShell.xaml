@@ -15,6 +15,7 @@
     </Shell.Resources>
     
     <TabBar>
+        <ShellContent Title="Reminder" ContentTemplate="{DataTemplate local:RemindersPage}"/>
         <Tab Title="Main">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                           Route="MainPage"/>

@@ -20,34 +20,14 @@ public partial class NotesPage : ContentPage
     {
         List<Note> col = new List<Note>(MainPage.Notes);
         col.Reverse();
-        var collection1 = new List<Note>();
-        var collection2 = new List<Note>();
-        for (int i = 0; i < col.Count; i++)
-        {
-            if (i % 2 == 0)
-                collection1.Add(col[i]);
-            else
-                collection2.Add(col[i]);
-        }
-        CollectionNotes.ItemsSource = collection1;
-        CollectionNotes1.ItemsSource = collection2;
+        CollectionNotes.ItemsSource = col;
     }
     private void Filter(string filterName="")
     {
         List<Note> col = new List<Note>(MainPage.Notes);
         col.Reverse();
         Sort(ref col, filterName);
-        var collection1 = new List<Note>();
-        var collection2 = new List<Note>();
-        for (int i = 0; i < col.Count; i++)
-        {
-            if (i % 2 == 0)
-                collection1.Add(col[i]);
-            else
-                collection2.Add(col[i]);
-        }
-        CollectionNotes.ItemsSource = collection1;
-        CollectionNotes1.ItemsSource = collection2;
+        CollectionNotes.ItemsSource = col;
     }
     private void Sort(ref List<Note> list, string sort)
     {
@@ -73,7 +53,6 @@ public partial class NotesPage : ContentPage
     private void FilterGroup_SelectedIndexChanged(object sender, EventArgs e)
     {
         CollectionNotes.ItemsSource = null;
-        CollectionNotes1.ItemsSource = null;
         switch ((string)FilterGroup.SelectedItem)
         {
             case "Нет фильтра":

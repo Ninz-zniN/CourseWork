@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.CreateReminderPage"
+             Title="CreateReminderPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.3*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="0.45*"/>
+            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.2*"/>
+        </Grid.RowDefinitions>
+        <Border Background="Pink" Margin="10">
+            <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
+        </Border>
+        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+            <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
+        </Border>
+        <Border Margin="10" Grid.Row="2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="пн" Clicked="Button_Clicked" CornerRadius="360" Margin="0,3,0,0" BackgroundColor="Gray" FontSize="20"/>
+                    <Button Text="вт" Clicked="Button_Clicked" Grid.Column="1" CornerRadius="360" Margin="0,3,0,0" BackgroundColor="Gray" FontSize="20"/>
+                    <Button Text="ср" Clicked="Button_Clicked" Grid.Column="2" CornerRadius="360" Margin="0,3,0,0" BackgroundColor="Gray" FontSize="20"/>
+                    <Button Text="чт" Clicked="Button_Clicked" Grid.Column="3" CornerRadius="360" Margin="0,3,0,0" BackgroundColor="Gray" FontSize="20"/>
+                </Grid>
+                <Grid Grid.Row="1" Margin="4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button Text="пт" Clicked="Button_Clicked" CornerRadius="360" Margin="0,3,0,3" BackgroundColor="Gray" FontSize="20"/>
+                    <Button Text="сб" Clicked="Button_Clicked" Grid.Column="1" CornerRadius="360" Margin="0,3,0,3" BackgroundColor="Gray" FontSize="20"/>
+                    <Button Text="вс" Clicked="Button_Clicked" Grid.Column="2" CornerRadius="360" Margin="0,3,0,3" BackgroundColor="Gray" FontSize="20"/>
+                </Grid>
+            </Grid>
+        </Border>
+        <!--<Border>
+            <HorizontalStackLayout>
+                <Stepper Minimum="0" Maximum="10" Increment="1"/>
+                <Label x:Name="StepperHead"/>
+            </HorizontalStackLayout>
+        </Border>-->
+        <Border Grid.Row="3" Margin="10">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout x:Name="Timers" Orientation="Horizontal">
+                    <TimePicker FontSize="24" WidthRequest="75"/>
+                </StackLayout>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Button x:Name="Btn_Add_Timer" Text="Добавить уведомление" Clicked="Btn_Add_Timer_Clicked"/>
+                    <Button Grid.Column="1" x:Name="Btn_Delete_Timer" Text="Удалить уведомление" Clicked="Btn_Delete_Timer_Clicked"/>
+                </Grid>
+            </Grid>   
+        </Border>
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="Отменить" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="DarkRed"/>
+            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" Margin="3,3,10,8" BackgroundColor="Green"/>
+        </Grid>
+    </Grid>
+</ContentPage>

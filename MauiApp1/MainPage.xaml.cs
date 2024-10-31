@@ -12,7 +12,7 @@ namespace MauiApp1
         static List<Note> notes = new List<Note>();
         static Dictionary<string, Color> colorsDict = new Dictionary<string, Color> { { "красный", Colors.Red }, { "зеленый", Colors.Green }, { "синий", Colors.Blue } };
         static List<string> groups = new List<string>{ "da", "da1", "da2" };
-        static List<Reminder> reminders = new List<Reminder>();
+        static List<Reminder> reminders = new List<Reminder>() { new Reminder("ам ам ам", "am am am am am")};
         public static List<WorkTask> Tasks { get { return tasks; } }
         public static List<Note> Notes { get { return notes; } }
         public static Dictionary<string, Color> ColorsDict { get { return colorsDict; } }

@@ -15,11 +15,11 @@
     </Shell.Resources>
     
     <TabBar>
-        <ShellContent Title="Reminder" ContentTemplate="{DataTemplate local:RemindersPage}"/>
         <Tab Title="Main">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
-                          Route="MainPage"/>
+                  Route="MainPage"/>
         </Tab>
+        <ShellContent Title="Reminder" ContentTemplate="{DataTemplate local:RemindersPage}"/>
         <Tab Title="Tasks">
             <ShellContent Title="AllTask" ContentTemplate="{DataTemplate local:WorkTaskPage}"/>
             <ShellContent Title="MatrixEisenhower" ContentTemplate="{DataTemplate local:MatrixEisenhowerPage}"/>

@@ -78,7 +78,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="CreateReminderPage.xaml">
+	  <MauiXaml Update="EditReminderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Pages\ReminderPage\CreateReminderPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Pages\TaskPages\EditTaskPage.xaml">
@@ -114,10 +117,6 @@
 	  <MauiXaml Update="Resources\Styles\CustomStyles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	</ItemGroup>
-
-	<ItemGroup>
-	  <Folder Include="Pages\ReminderPage\" />
 	</ItemGroup>
 
 </Project>

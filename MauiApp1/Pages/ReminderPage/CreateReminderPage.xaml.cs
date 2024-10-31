@@ -61,7 +61,7 @@ public partial class CreateReminderPage : ContentPage
                 }
             }
         }
-
+        MainPage.Reminders.Add(reminder);
         Navigation.PopModalAsync();
     }
 

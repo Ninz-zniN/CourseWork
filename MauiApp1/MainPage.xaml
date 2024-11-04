@@ -18,11 +18,11 @@
                 <CollectionView x:Name="CurrentTask" Margin="1">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="2" Background="AliceBlue" VerticalOptions="Fill">
+                            <Border Style="{StaticResource Key=miniBorder}">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" FontSize="16"/>
+                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>
@@ -39,18 +39,18 @@
                     <Button Grid.Column="1" Text="+" FontSize="40" CornerRadius="15" BackgroundColor="LightGreen" Clicked="BtnCreateQuickNoteClicked"/>
                 </Grid>
             </Border>
-            <Border Grid.Row="2" Background="Aquamarine" Margin="10,5,10,5">
+            <Border Grid.Row="2" Background="Aquamarine" Margin="10,5,10,5" Padding="1,2,1,2">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="15" />
                 </Border.StrokeShape>
                 <CollectionView x:Name="OtherTasks">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Margin="2" Background="AliceBlue">
+                            <Border Style="{StaticResource Key=miniBorder}">
                                 <StackLayout Margin="10, 5, 10 , 8">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" FontSize="16"/>
+                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>

@@ -26,9 +26,9 @@
                 <CollectionView x:Name="ImportantUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
+                            <Border StrokeShape="{RoundRectangle CornerRadius=15}">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
                                     <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
                                 </StackLayout>
                             </Border>
@@ -45,9 +45,9 @@
                 <CollectionView x:Name="ImportantNotUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
+                            <Border StrokeShape="{RoundRectangle CornerRadius=15}">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
                                     <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
                                 </StackLayout>
                             </Border>
@@ -64,9 +64,9 @@
                 <CollectionView x:Name="NotImportantUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
+                            <Border StrokeShape="{RoundRectangle CornerRadius=15}">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
                                     <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
                                 </StackLayout>
                             </Border>
@@ -83,10 +83,10 @@
                 <CollectionView x:Name="NotImportantNotUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
+                            <Border StrokeShape="{RoundRectangle CornerRadius=15}">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding Header}" FontSize="16"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" FontSize="16"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>

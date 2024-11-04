@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.RemindersPage"
+             Title="RemindersPage"
+             Appearing="ContentPage_Appearing">
+    <Grid>
+        <Border Padding="2,4,2,4">
+            <CollectionView x:Name="CollectionReminder" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Key=miniBorder}">
+                            <Grid Margin="10, 5, 10 , 8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Header}" FontSize="16"/>
+                                <Label Grid.Row="1" Text="{Binding Description}" MaxLines="2" FontSize="16"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+        <Button Grid.Row="1" Text="+" FontSize="26" Clicked="Button_Clicked" HorizontalOptions="End" VerticalOptions="End" CornerRadius="180" HeightRequest="70" WidthRequest="70" Margin="0,0,15,15" BackgroundColor="ForestGreen"/>
+    </Grid>
+</ContentPage>

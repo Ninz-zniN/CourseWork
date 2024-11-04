@@ -28,6 +28,14 @@
     <Color x:Key="Gray900">#212121</Color>
     <Color x:Key="Gray950">#141414</Color>
 
+    <Color x:Key="mAliceBlue">AliceBlue</Color>
+    <Color x:Key="mLightCyan">MediumSlateBlue</Color>
+    <SolidColorBrush x:Key="mLightCyanBrush" Color="{StaticResource mLightCyan}"/>
+    <Color x:Key="mAzure">#E2E2FD</Color>
+    <Color x:Key="mPurple">#D8D8FC</Color>
+    <Color x:Key="mTransparent">Transparent</Color>
+    <Color x:Key="mDarkBlue">DarkBlue</Color>
+
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>
     <SolidColorBrush x:Key="TertiaryBrush" Color="{StaticResource Tertiary}"/>

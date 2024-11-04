@@ -11,7 +11,7 @@ namespace MauiApp1
         protected override void OnCreate(Bundle? savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
-
+            this.RequestedOrientation = ScreenOrientation.Portrait;
             const int requestNotification = 0;
             string[] notiPermission =
             {

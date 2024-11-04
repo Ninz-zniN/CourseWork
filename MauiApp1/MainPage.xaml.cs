@@ -27,7 +27,7 @@ namespace MauiApp1
 
         private void DataLoading()
         {
-            DateTime dt = DateTime.Now;
+            DateTime dt = DateTime.Now.AddDays(1);
             tasks.AddRange(new List<WorkTask> { new WorkTask("Жиес", "сделай то", dt, ImportanceOfTask.NOTIMPORTANT), new WorkTask("опа", "сделай это", dt, ImportanceOfTask.IMPORTANT), new WorkTask("хы", "ничего не делай eeeeee", dt, ImportanceOfTask.NORMAL) });
             FindMostImportantTask();
             

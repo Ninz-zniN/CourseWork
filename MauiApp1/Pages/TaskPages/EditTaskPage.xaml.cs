@@ -47,7 +47,7 @@ public partial class EditTaskPage : ContentPage
                 importance = ImportanceOfTask.IMPORTANT;
                 break;
         }
-        WorkTask current = new WorkTask(Head.Text, Description.Text, DateDeadLine.Date.Add(TimeDeadLine.Time), importance);
+        WorkTask current = new WorkTask(Head.Text, Description.Text, DateDeadLine.Date.Add(TimeDeadLine.Time), importance,false);
         current.IsCompleted = Complete.BackgroundColor == Colors.Gray;
         if (workTask != current)
         {
@@ -64,6 +64,7 @@ public partial class EditTaskPage : ContentPage
     }
     private async void BtnDeleteClicked(object sender, EventArgs e)
     {
+        workTask.IsCompleted = true;
         MainPage.Tasks.Remove(this.workTask);
         await Navigation.PopModalAsync();
     }

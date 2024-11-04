@@ -2,12 +2,27 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.Resources.Styles.CustomStyles">
-
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource mDarkBlue}, Dark={StaticResource White}}"/>
+    </Style>
     <Style TargetType="Button">
         <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
     <Style TargetType="Border">
         <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=15}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAzure}, Dark={StaticResource mTransparent}}"/>
+        <Setter Property="Margin" Value="8,4,8,4"/>
     </Style>
+    <Style x:Key="miniBorder" TargetType="Border">
+        <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=12}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mPurple}, Dark={StaticResource Gray400}}"/>
+        <Setter Property="Margin" Value="2,1,2,1"/>
+    </Style>
+    <!--<Style TargetType="Shell">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAliceBlue}, Dark={StaticResource OffBlack}}"/>
+    </Style>
+    <Style TargetType="Page" ApplyToDerivedTypes="True">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAliceBlue}, Dark={StaticResource OffBlack}}"/>
+    </Style>-->
 </ResourceDictionary>

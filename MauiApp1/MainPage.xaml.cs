@@ -27,7 +27,10 @@ namespace MauiApp1
             InitializeComponent();
             DataLoading();
         }
+        private void DataImportFromFile()
+        {
 
+        }
         private void DataLoading()
         {
             DateTime dt = DateTime.Now.AddDays(1);

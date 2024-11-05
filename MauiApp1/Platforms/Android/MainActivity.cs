@@ -2,6 +2,7 @@
 using Android.App;
 using Android.Content.PM;
 using Android.OS;
+using System.Text.Json;
 
 namespace MauiApp1
 {
@@ -23,6 +24,11 @@ namespace MauiApp1
             {
                 RequestPermissions(notiPermission, requestNotification);
             }
+        }
+        protected override void OnStop()
+        {
+            base.OnStop();
+            //JsonSerializer.Serialize(tasks);
         }
     }
 }

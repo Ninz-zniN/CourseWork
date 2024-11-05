@@ -26,10 +26,10 @@
                 </Picker.Items>
             </Picker>
         </HorizontalStackLayout>
-        <Border Grid.Row="1">
+        <Border Grid.Row="1" Style="{StaticResource Key=miniBorder}" Margin="6,4,6,4">
             <SearchBar x:Name="searchBar" Unfocused="SearchBar_Unfocused" TextChanged="SearchBar_TextChanged"/>
         </Border>
-        <Border Grid.Row="2" Padding="2,4,2,4">
+        <Border Grid.Row="2" Padding="2">
             <CollectionView  x:Name="CollectionTasks" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -42,14 +42,11 @@
                                 <Grid.RowDefinitions>
                                     <RowDefinition/>
                                     <RowDefinition/>
-                                    <RowDefinition/>
                                 </Grid.RowDefinitions>
                                 <Label Text="{Binding Header}" FontSize="16"/>
                                 <Label Grid.Column="1" Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" FontSize="16" HorizontalOptions="End"/>
                                 <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
-                                <HorizontalStackLayout Grid.Row="1" Grid.Column="1" HorizontalOptions="End">
-                                    <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold"/>
-                                </HorizontalStackLayout>
+                                <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalOptions="End"/>
                             </Grid>
                         </Border>
                     </DataTemplate>

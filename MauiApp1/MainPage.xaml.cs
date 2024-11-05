@@ -2,6 +2,7 @@
 using Plugin.LocalNotification.AndroidOption;
 using Plugin.LocalNotification;
 using System.Threading.Tasks;
+using System.Text.Json;
 
 namespace MauiApp1
 {
@@ -21,6 +22,8 @@ namespace MauiApp1
 
         public MainPage()
         {
+            //JsonSerializer.Serialize(tasks);
+            //FileSystem.
             InitializeComponent();
             DataLoading();
         }
@@ -34,9 +37,9 @@ namespace MauiApp1
         }
         private void FindMostImportantTask()
         {
-            List<WorkTask> cloneTasks = new List<WorkTask>(tasks);
             if (tasks.Count != 0)
             {
+                List<WorkTask> cloneTasks = new List<WorkTask>(tasks);
                 WorkTask MostTask = tasks[0];
                 foreach (WorkTask task in tasks)
                 {
@@ -47,10 +50,17 @@ namespace MauiApp1
                 CurrentTask.ItemsSource = new List<WorkTask> { MostTask };
                 cloneTasks.Remove(MostTask);
                 //OtherTasks.ItemsSource = null;
-                OtherTasks.ItemsSource = cloneTasks;
+                OtherTasks.ItemsSource = FindOtherTasks(cloneTasks);
             }
         }
-
+        private List<WorkTask> FindOtherTasks(List<WorkTask> workTasks)
+        {
+            workTasks = workTasks.FindAll(x=>(!x.IsCompleted&&((int)x.Importance)>0));
+            if (workTasks.Count > 8)
+                workTasks.RemoveRange(8, workTasks.Count - 8);
+            workTasks.Sort(WorkTask.CompareDate);
+            return workTasks;
+        }
         private void BtnTasksClicked(object sender, EventArgs e)
         {
             var req = new NotificationRequest()
@@ -90,6 +100,17 @@ namespace MauiApp1
         private void ContentPage_Appearing(object sender, EventArgs e)
         {
             FindMostImportantTask();
+        }
+
+        private async void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            CollectionView cw = (CollectionView)sender;
+            if (cw.SelectedItem != null)
+            {
+                WorkTask workTask = (WorkTask)cw.SelectedItem;
+                cw.SelectedItem = null;
+                await Navigation.PushModalAsync(new EditTaskPage(workTask));
+            }
         }
     }
 

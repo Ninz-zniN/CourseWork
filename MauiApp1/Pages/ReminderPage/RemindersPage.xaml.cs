@@ -28,8 +28,9 @@ public partial class RemindersPage : ContentPage
     {
         if (CollectionReminder.SelectedItem != null)
         {
-            await Navigation.PushModalAsync(new EditReminderPage((Reminder)CollectionReminder.SelectedItem));
+            Reminder reminder = (Reminder)CollectionReminder.SelectedItem;
             CollectionReminder.SelectedItem = null;
+            await Navigation.PushModalAsync(new EditReminderPage(reminder));
         }
     }
     private async void Button_Clicked(object sender, EventArgs e)

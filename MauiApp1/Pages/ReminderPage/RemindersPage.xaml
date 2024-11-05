@@ -9,7 +9,7 @@
             <RowDefinition Height="9*"/>
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
-        <Border>
+        <Border Style="{StaticResource Key=miniBorder}" Margin="6,4,6,4">
             <SearchBar x:Name="searchBar" Unfocused="SearchBar_Unfocused" TextChanged="SearchBar_TextChanged"/>
         </Border>
         <Border Padding="2,4,2,4" Grid.Row="1">

@@ -26,7 +26,7 @@ public partial class EditNotePage : ContentPage
         await Navigation.PopModalAsync();
     }
 
-    private void PickerColor_SelectedIndexChanged(object sender, EventArgs e)
+    private void ColorPicker_SelectedIndexChanged(object sender, EventArgs e)
     {
         if (MainPage.ColorsDict.ContainsKey((string)PickerColor.SelectedItem))
             PickerColor.BackgroundColor = MainPage.ColorsDict[(string)PickerColor.SelectedItem];

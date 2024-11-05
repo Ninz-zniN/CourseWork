@@ -38,6 +38,7 @@
     <Color x:Key="mFireBrick">FireBrick</Color>
     <Color x:Key="mCrimson">Crimson</Color>
     <Color x:Key="mPurpleHeader">#D2C8FD</Color>
+    <Color x:Key="mLightBlue">#7ee0b9</Color>
 
     <SolidColorBrush x:Key="PrimaryBrush" Color="{StaticResource Primary}"/>
     <SolidColorBrush x:Key="SecondaryBrush" Color="{StaticResource Secondary}"/>

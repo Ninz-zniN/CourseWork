@@ -3,18 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.EditReminderPage"
              Title="EditReminderPage">
-    <Grid>
+    <Grid Margin="7,2,7,4">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="0.45*"/>
-            <RowDefinition Height="0.35*"/>
-            <RowDefinition Height="0.2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="0.18*"/>
         </Grid.RowDefinitions>
-        <Border Background="Pink" Margin="10">
+        <Border Style="{StaticResource HeadBorder}">
             <Label x:Name="Head" Margin="10" VerticalTextAlignment="Center"/>
         </Border>
-        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+        <Border Style="{StaticResource miniBorder}" Grid.Row="1">
             <Label x:Name="Description" Margin="5"/>
         </Border>
         <Grid Grid.Row="4">
@@ -22,8 +20,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Выйти" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="MediumVioletRed"/>
-            <Button Text="Удалить" Clicked="BtnDeleteClicked" Grid.Column="1" Margin="3,3,10,8" BackgroundColor="DarkRed"/>
+            <Button Text="Назад" Clicked="BtnExitClicked" Margin="1.5,3,3,0" BackgroundColor="Gray"/>
+            <Button Text="Удалить" Clicked="BtnDeleteClicked" Grid.Column="1" Margin="3,3,1.5,0" BackgroundColor="{StaticResource mFireBrick}"/>
         </Grid>
     </Grid>
 </ContentPage>

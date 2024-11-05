@@ -4,29 +4,35 @@
              x:Class="MauiApp1.CreateNotePage"
              Title="CreateNotePage">
 
-    <Grid>
+    <Grid Margin="7,2,7,4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.65*"/>
-            <RowDefinition Height="3*"/>
-            <RowDefinition Height="0.4*"/>
-            <RowDefinition Height="0.45*"/>
+            <RowDefinition Height="0.12*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.14*"/>
+            <RowDefinition Height="0.075*"/>
         </Grid.RowDefinitions>
-        <Border Background="Pink" Margin="10">
+        <Border Style="{StaticResource HeadBorder}">
             <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
         </Border>
-        <Border Background="GreenYellow" Grid.Row="1" Margin="10">
+        <Border Style="{StaticResource Key=miniBorder}" Grid.Row="1" Margin="0,0,0,6">
             <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
         </Border>
-        <Grid Grid.Row="2">
+        <Grid Margin="0,0,0,3" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Border Background="Pink" Margin="10,5,5,5">
-                <Picker x:Name="GroupPicker" SelectedIndexChanged="GroupPicker_SelectedIndexChanged"/>
+            <Label Text="Группа" Style="{StaticResource Key=HeaderLabel}" VerticalOptions="End"/>
+            <Label Text="Цвет заголовка" Style="{StaticResource Key=HeaderLabel}" Grid.Column="1" VerticalOptions="End"/>
+            <Border Style="{StaticResource Key=miniBorder}" Grid.Row="1">
+                <Picker x:Name="GroupPicker" HorizontalTextAlignment="Center"/>
             </Border>
-            <Border Background="Pink" Margin="5,5,10,5" Grid.Column="1">
-                <Picker x:Name="ColorPicker" Grid.Column="1" SelectedIndexChanged="ColorPicker_SelectedIndexChanged"/>
+            <Border Style="{StaticResource Key=miniBorder}" Grid.Column="1" Grid.Row="1">
+                <Picker x:Name="ColorPicker" SelectedIndexChanged="ColorPicker_SelectedIndexChanged" HorizontalTextAlignment="Center"/>
             </Border>
         </Grid>
         <Grid Grid.Row="3">
@@ -34,8 +40,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Отменить" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="DarkRed"/>
-            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" Margin="3,3,10,8" BackgroundColor="Green"/>
+            <Button Text="Отменить" Clicked="BtnExitClicked" Background="Gray" Margin="2,0,3,0"/>
+            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" BackgroundColor="Green" Margin="3,0,2,0"/>
         </Grid>
     </Grid>
 </ContentPage>

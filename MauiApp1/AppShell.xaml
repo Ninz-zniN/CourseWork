@@ -14,17 +14,16 @@
     </Shell.Resources>
     
     <TabBar>
-        <Tab Title="Main">
+        <Tab Title="Главная">
             <ShellContent ContentTemplate="{DataTemplate local:MainPage}"
                   Route="MainPage"/>
         </Tab>
-        <ShellContent Title="Reminder" ContentTemplate="{DataTemplate local:RemindersPage}"/>
-        <Tab Title="Tasks">
-            <ShellContent Title="AllTask" ContentTemplate="{DataTemplate local:WorkTaskPage}"/>
-            <ShellContent Title="MatrixEisenhower" ContentTemplate="{DataTemplate local:MatrixEisenhowerPage}"/>
+        <ShellContent Title="Напоминания" ContentTemplate="{DataTemplate local:RemindersPage}"/>
+        <Tab Title="Задачи">
+            <ShellContent Title="Список задач" ContentTemplate="{DataTemplate local:WorkTaskPage}"/>
+            <ShellContent Title="Матрица эйзенхауэра" ContentTemplate="{DataTemplate local:MatrixEisenhowerPage}"/>
         </Tab>
-        
-        <ShellContent Title="Notes" ContentTemplate="{DataTemplate local:NotesPage}"/>
+        <ShellContent Title="Заметки" ContentTemplate="{DataTemplate local:NotesPage}"/>
     </TabBar>
 
 </Shell>

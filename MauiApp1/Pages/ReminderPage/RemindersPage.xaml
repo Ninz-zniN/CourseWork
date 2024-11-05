@@ -5,7 +5,14 @@
              Title="RemindersPage"
              Appearing="ContentPage_Appearing">
     <Grid>
-        <Border Padding="2,4,2,4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Border>
+            <SearchBar x:Name="searchBar" Unfocused="SearchBar_Unfocused" TextChanged="SearchBar_TextChanged"/>
+        </Border>
+        <Border Padding="2,4,2,4" Grid.Row="1">
             <CollectionView x:Name="CollectionReminder" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
@@ -23,6 +30,6 @@
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </Border>
-        <Button Grid.Row="1" Text="+" FontSize="26" Clicked="Button_Clicked" HorizontalOptions="End" VerticalOptions="End" CornerRadius="180" HeightRequest="70" WidthRequest="70" Margin="0,0,15,15" BackgroundColor="ForestGreen"/>
+        <Button Grid.Row="1" Clicked="Button_Clicked" Style="{StaticResource Key=BtnAdd}"/>
     </Grid>
 </ContentPage>

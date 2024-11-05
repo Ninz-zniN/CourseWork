@@ -6,30 +6,42 @@
 
     <Grid Margin="7">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.075*"/>
             <RowDefinition Height="0.12*"/>
             <RowDefinition/>
+            <RowDefinition Height="0.14*"/>
+            <RowDefinition Height="0.075*"/>
         </Grid.RowDefinitions>
-        <Border Grid.Row="1" BackgroundColor="Pink" Margin="0,5,0,5">
+        <Border BackgroundColor="Pink" Margin="0,5,0,5">
             <Entry x:Name="Header" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
         </Border>
-        <Grid Margin="0,3,0,3">
+        <Grid Margin="0,3,0,3" Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition Width="0.75*"/>
-                <ColumnDefinition Width="0.75*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Button Text="Назад" Clicked="BtnBackClicked"/>
-            <Border BackgroundColor="Pink" Grid.Column="1">
-                <Picker x:Name="Group" HorizontalTextAlignment="Center"/>
-            </Border>
-            <Border BackgroundColor="Pink" Grid.Column="2">
-                <Picker x:Name="PickerColor" SelectedIndexChanged="PickerColor_SelectedIndexChanged" HorizontalTextAlignment="Center"/>
-            </Border>
+
             <Button Text="Удалить" Grid.Column="3" BackgroundColor="OrangeRed" Clicked="BtnDeleteClicked"/>
         </Grid>
-        <Border BackgroundColor="GreenYellow" Grid.Row="2" Margin="0,0,0,10">
+        <Grid Margin="0,0,0,3" Grid.Row="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.6*"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Label Text="Группа" Style="{StaticResource Key=HeaderLabel}" FontSize="20"/>
+            <Label Text="Цвет заголовка" Style="{StaticResource Key=HeaderLabel}" Grid.Column="1" FontSize="20"/>
+            <Border BackgroundColor="Pink" Grid.Row="1">
+                <Picker x:Name="Group" HorizontalTextAlignment="Center"/>
+            </Border>
+            <Border BackgroundColor="Pink" Grid.Column="1" Grid.Row="1">
+                <Picker x:Name="PickerColor" SelectedIndexChanged="PickerColor_SelectedIndexChanged" HorizontalTextAlignment="Center"/>
+            </Border>
+        </Grid>
+        <Border BackgroundColor="GreenYellow" Grid.Row="1" Margin="0,0,0,10">
             <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
         </Border>
     </Grid>

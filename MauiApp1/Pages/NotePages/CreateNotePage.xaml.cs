@@ -33,7 +33,12 @@ public partial class CreateNotePage : ContentPage
     {
         if ((Head.Text == string.Empty) || (Head.Text==null))
             Head.Text = DateTime.Now.ToString("H:mm  dd MMM");
-        MainPage.Notes.Add(new Note(Head.Text, Description.Text, ColorPicker.BackgroundColor, (string)GroupPicker.SelectedItem));
+        string group;
+        if (GroupPicker.SelectedItem == null)
+            group = string.Empty;
+        else
+            group = (string)GroupPicker.SelectedItem;
+        MainPage.Notes.Add(new Note(Head.Text, Description.Text, ColorPicker.BackgroundColor, group));
         await Navigation.PopModalAsync();
     }
 

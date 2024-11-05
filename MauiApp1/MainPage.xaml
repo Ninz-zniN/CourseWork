@@ -8,13 +8,12 @@
         <Grid
             RowSpacing="10">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="0.92*"/>
                 <RowDefinition Height="0.8*"/>
                 <RowDefinition Height="5*"/>
-                <RowDefinition Height="0.65*"/>
             </Grid.RowDefinitions>
 
-            <Border BackgroundColor="LightPink" Margin="10,5,10,5">
+            <Border BackgroundColor="{AppThemeBinding Light={StaticResource mCrimson}, Dark={StaticResource mFireBrick}}" Margin="10,5,10,5" Padding="1,2,1,2">
                 <CollectionView x:Name="CurrentTask" Margin="1">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
@@ -39,7 +38,7 @@
                     <Button Grid.Column="1" Text="+" FontSize="40" CornerRadius="15" BackgroundColor="LightGreen" Clicked="BtnCreateQuickNoteClicked"/>
                 </Grid>
             </Border>
-            <Border Grid.Row="2" Background="Aquamarine" Margin="10,5,10,5" Padding="1,2,1,2">
+            <Border Grid.Row="2" Background="{AppThemeBinding Light={StaticResource mAzure}, Dark={StaticResource Gray600}}" Margin="10,5,10,8" Padding="1,2,1,2">
                 <Border.StrokeShape>
                     <RoundRectangle CornerRadius="15" />
                 </Border.StrokeShape>
@@ -57,31 +56,6 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Border>
-
-            <Grid x:Name="MenuBtn" Grid.Row="3">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-                <Button
-                    Text="профиль"/>
-                <Button
-                    Text="дела"
-                    Grid.Column="1"
-                    Clicked="BtnTasksClicked"/>
-                <Button
-                    Text="основное меню"
-                    Grid.Column="2"/>
-                <Button
-                    Text="напоминания"
-                    Grid.Column="3"/>
-                <Button
-                    Text="заметки"
-                    Grid.Column="4"/>
-            </Grid>
         </Grid>
     </ScrollView>
 

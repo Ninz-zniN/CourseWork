@@ -9,7 +9,7 @@ namespace MauiApp1
     {
         public static int LastIdNotification = 1;
         static List<WorkTask> tasks = new List<WorkTask>();
-        static List<Note> notes = new List<Note>();
+        static List<Note> notes = new List<Note>() { new Note("") { Header="лен"}, new Note("") { Header = "ален" }, new Note("") { Header = "ЛенЬ" }, new Note("") { Header = "Арбуз" }, new Note("") { Header = "лин" } };
         static Dictionary<string, Color> colorsDict = new Dictionary<string, Color> { { "красный", Colors.Red }, { "зеленый", Colors.Green }, { "синий", Colors.Blue } };
         static List<string> groups = new List<string>{ "da", "da1", "da2" };
         static List<Reminder> reminders = new List<Reminder>() { new Reminder("ам ам ам", "am am am am am")};

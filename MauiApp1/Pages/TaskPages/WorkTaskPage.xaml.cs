@@ -27,7 +27,15 @@ public partial class WorkTaskPage : ContentPage
     {
         PickerSort.SelectedIndex = -1;
         PickerFilter.SelectedIndex = -1;
+        DataLoad();
+    }
+    private void Picker_SelectedIndexChanged(object sender, EventArgs e) => DataLoad();
+    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e) => DataLoad();
+    private void SearchBar_TextChanged(object sender, TextChangedEventArgs e) => DataLoad();
+    private void DataLoad()
+    {
         Sort();
+        Searching();
     }
     private void Sort()
     {
@@ -73,11 +81,16 @@ public partial class WorkTaskPage : ContentPage
         int daysBetween = Math.Abs((dateTime - dateStartWeek).Days);
         return daysBetween <= 6;
     }
-    private void Picker_SelectedIndexChanged(object sender, EventArgs e)
+    private void Searching()
     {
-        Sort();
+        if (!(searchBar.Text == null || searchBar.Text.Length == 0))
+            CollectionTasks.ItemsSource = ((List<WorkTask>)CollectionTasks.ItemsSource).FindAll(x => x.Header.ToLower().Contains(searchBar.Text.ToLower(), StringComparison.OrdinalIgnoreCase));
     }
-
+    private async void SearchBar_Unfocused(object sender, FocusEventArgs e)
+    {
+        if (searchBar.IsSoftInputShowing())
+            await searchBar.HideSoftInputAsync(System.Threading.CancellationToken.None);
+    }
     private async void CollectionTasks_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         if (CollectionTasks.SelectedItem != null)
@@ -86,10 +99,5 @@ public partial class WorkTaskPage : ContentPage
             CollectionTasks.SelectedItem = null;
             await Navigation.PushModalAsync(new EditTaskPage(task));
         }
-    }
-
-    private void CheckBox_CheckedChanged(object sender, CheckedChangedEventArgs e)
-    {
-        Sort();
     }
 }

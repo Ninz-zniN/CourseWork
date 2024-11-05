@@ -7,9 +7,10 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="6*"/>
+            <RowDefinition Height="9*"/>
             <RowDefinition Height="94*"/>
         </Grid.RowDefinitions>
-        <Grid x:Name="ViewNotes" Grid.Row="1">
+        <Grid x:Name="ViewNotes" Grid.Row="2">
             <Border Padding="2,4,2,4">
                 <CollectionView x:Name="CollectionNotes" Margin="1" SelectionMode="Single" SelectionChanged="CollectionNotes_SelectionChanged" ItemsLayout="VerticalGrid, 2">
                     <CollectionView.ItemTemplate>
@@ -34,17 +35,18 @@
                     </CollectionView.ItemTemplate>
                 </CollectionView>
             </Border>
-            <Button Text="+" FontSize="26" Clicked="BtnAddCLicked" HorizontalOptions="End" VerticalOptions="End" CornerRadius="180" HeightRequest="70" WidthRequest="70" Margin="0,0,15,15" BackgroundColor="ForestGreen"/>
+            <Button Clicked="BtnAddCLicked" Style="{StaticResource Key=BtnAdd}"/>
         </Grid>
+        <Border Grid.Row="1">
+            <SearchBar x:Name="searchBar" Unfocused="SearchBar_Unfocused" TextChanged="SearchBar_TextChanged"/>
+        </Border>
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
             <Button Text="Управление группами" Margin="10,5,5,0" Clicked="BtnGroupClicked"/>
-            <Border Grid.Column="1" BackgroundColor="BlueViolet" Margin="0,5,10,0">
-                <Picker x:Name="FilterGroup" VerticalOptions="Fill" HorizontalOptions="Fill" SelectedIndexChanged="FilterGroup_SelectedIndexChanged"/>
-            </Border>
+            <Picker Grid.Column="1" Margin="0,5,10,0" x:Name="FilterGroup" VerticalOptions="Fill" HorizontalOptions="Fill" SelectedIndexChanged="FilterGroup_SelectedIndexChanged"/>
         </Grid>
         
     </Grid>

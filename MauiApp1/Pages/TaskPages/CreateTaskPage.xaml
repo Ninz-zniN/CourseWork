@@ -6,12 +6,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.44*"/>
-            <RowDefinition Height="2.9*"/>
+            <RowDefinition Height="2.6*"/>
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.40*"/>
         </Grid.RowDefinitions>
-        <Border Background="{StaticResource mPurpleHeader}" Margin="10,10,10,5">
+        <Border Style="{StaticResource HeadBorder}" Margin="10,10,10,5">
             <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10,0,10,10" VerticalTextAlignment="Center" FontSize="18"/>
         </Border>
         <Border Grid.Row="1" Margin="10,5,10,10" Style="{StaticResource Key=miniBorder}">

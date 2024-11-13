@@ -37,7 +37,6 @@ public partial class CreateReminderPage : ContentPage
                         CategoryType = NotificationCategoryType.Reminder,
                         Schedule = new NotificationRequestSchedule()
                         {
-                            //NotifyTime = dtNow,//DateTime.Now.AddSeconds(10),
                             RepeatType = NotificationRepeat.Weekly
                         },
                         Android = new AndroidOptions()

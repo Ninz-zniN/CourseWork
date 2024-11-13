@@ -7,15 +7,15 @@
     <Grid Margin="7,2,7,4">
         <Grid.RowDefinitions>
             <RowDefinition Height="0.12*"/>
-            <RowDefinition/>
+            <RowDefinition Height="0.75*"/>
             <RowDefinition Height="0.14*"/>
-            <RowDefinition Height="0.075*"/>
+            <RowDefinition Height="0.11*"/>
         </Grid.RowDefinitions>
         <Border Style="{StaticResource HeadBorder}">
-            <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10" VerticalTextAlignment="Center"/>
+            <Entry x:Name="Head" Placeholder="Заголовок" Margin="10" VerticalTextAlignment="Center"/>
         </Border>
         <Border Style="{StaticResource Key=miniBorder}" Grid.Row="1" Margin="0,0,0,6">
-            <Editor x:Name="Description" Placeholder="Описание" PlaceholderColor="DarkGray" Margin="5"/>
+            <Editor x:Name="Description" Placeholder="Описание" Margin="5"/>
         </Border>
         <Grid Margin="0,0,0,3" Grid.Row="2">
             <Grid.RowDefinitions>
@@ -29,7 +29,7 @@
             <Label Text="Группа" Style="{StaticResource Key=HeaderLabel}" VerticalOptions="End"/>
             <Label Text="Цвет заголовка" Style="{StaticResource Key=HeaderLabel}" Grid.Column="1" VerticalOptions="End"/>
             <Border Style="{StaticResource Key=miniBorder}" Grid.Row="1">
-                <Picker x:Name="GroupPicker" HorizontalTextAlignment="Center"/>
+                <Picker x:Name="GroupPicker" HorizontalTextAlignment="Center" SelectedIndexChanged="GroupPicker_SelectedIndexChanged"/>
             </Border>
             <Border Style="{StaticResource Key=miniBorder}" Grid.Column="1" Grid.Row="1">
                 <Picker x:Name="ColorPicker" SelectedIndexChanged="ColorPicker_SelectedIndexChanged" HorizontalTextAlignment="Center"/>
@@ -40,8 +40,8 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Отменить" Clicked="BtnExitClicked" Background="Gray" Margin="2,0,3,0"/>
-            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" BackgroundColor="Green" Margin="3,0,2,0"/>
+            <Button Text="Отменить" Clicked="BtnExitClicked" Background="Gray" Margin="2,0,3,0" FontSize="20" TextColor="White"/>
+            <Button Text="Сохранить" Clicked="BtnSaveClicked" Grid.Column="1" BackgroundColor="Green" Margin="3,0,2,0" FontSize="20" TextColor="White"/>
         </Grid>
     </Grid>
 </ContentPage>

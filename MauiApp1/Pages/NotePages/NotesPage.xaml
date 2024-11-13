@@ -45,7 +45,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition Width="0.5*"/>
             </Grid.ColumnDefinitions>
-            <Button Text="Управление группами" Margin="10,5,5,0" Clicked="BtnGroupClicked"/>
+            <Button Text="Управление группами" Margin="10,5,5,0" Clicked="BtnGroupClicked" TextColor="White"/>
             <Picker Grid.Column="1" Margin="0,5,10,0" x:Name="FilterGroup" VerticalOptions="Fill" HorizontalOptions="Fill" SelectedIndexChanged="FilterGroup_SelectedIndexChanged"/>
         </Grid>
         

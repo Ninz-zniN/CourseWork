@@ -73,12 +73,14 @@ public partial class EditTaskPage : ContentPage
         if (Complete.BackgroundColor == Colors.Green)
         {
             Complete.BackgroundColor = Colors.Gray;
-            Complete.Text = "Отменить выполнение";
+            Complete.FontSize = 11;
+            Complete.Text = "Отм.выполнения";
         }
         else
         {
             Complete.BackgroundColor = Colors.Green;
-            Complete.Text = "Выполнить дело";
+            Complete.FontSize = 16;
+            Complete.Text = "Выполнить";
         }
     }
 

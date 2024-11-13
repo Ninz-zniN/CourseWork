@@ -8,7 +8,7 @@
     <Grid
             RowSpacing="10">
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.92*"/>
+            <RowDefinition Height="0.8*"/>
             <RowDefinition Height="0.8*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
@@ -43,8 +43,8 @@
                             </Grid.RowDefinitions>
                             <Label Text="{Binding Header}" FontSize="16"/>
                             <Label Grid.Column="1" Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" FontSize="16" HorizontalOptions="End"/>
-                            <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
-                            <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalOptions="End"/>
+                            <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" Margin="0,10,0,0"/>
+                            <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Margin="0,10,0,0"/>
                         </Grid>
                     </Border>
                 </DataTemplate>

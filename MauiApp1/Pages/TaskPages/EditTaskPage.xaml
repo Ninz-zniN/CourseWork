@@ -6,12 +6,12 @@
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="0.44*"/>
-            <RowDefinition Height="2.9*"/>
+            <RowDefinition Height="2.6*"/>
             <RowDefinition Height="0.4*"/>
             <RowDefinition Height="0.3*"/>
-            <RowDefinition Height="0.35*"/>
+            <RowDefinition Height="0.40*"/>
         </Grid.RowDefinitions>
-        <Border Background="{StaticResource mPurpleHeader}" Margin="10,10,10,5">
+        <Border Style="{StaticResource HeadBorder}" Margin="10,10,10,5">
             <Entry x:Name="Head" Placeholder="Заголовок" PlaceholderColor="DarkGray" Margin="10,0,10,10" VerticalTextAlignment="Center" FontSize="18"/>
         </Border>
         <Border Grid.Row="1" Margin="10,5,10,10" Style="{StaticResource Key=miniBorder}">
@@ -48,9 +48,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
-            <Button Text="Назад" FontSize="13" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="Gray"/>
-            <Button Text="Удалить" FontSize="13" Clicked="BtnDeleteClicked" Grid.Column="1" Margin="3,3,3,8" BackgroundColor="DarkRed"/>
-            <Button Text="✓ Выполнитьдело" FontSize="10" x:Name="Complete" Clicked="BtnCompleteClicked" Grid.Column="2" Margin="3,3,10,8" BackgroundColor="Green"/>
+            <Button Text="Назад" Clicked="BtnExitClicked" Margin="10,3,3,8" BackgroundColor="Gray" FontSize="20" TextColor="White"/>
+            <Button Text="Удалить" Clicked="BtnDeleteClicked" Grid.Column="1" Margin="3,3,3,8" BackgroundColor="DarkRed" FontSize="20" TextColor="White"/>
+            <Button Text="Выполнить" FontSize="16" x:Name="Complete" Clicked="BtnCompleteClicked" Grid.Column="2" Margin="3,3,10,8" BackgroundColor="Green" TextColor="White"/>
         </Grid>
     </Grid>
 </ContentPage>

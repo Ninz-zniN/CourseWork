@@ -4,85 +4,88 @@
              x:Class="MauiApp1.MainPage"
              Appearing="ContentPage_Appearing">
 
-    <ScrollView>
-        <Grid
+
+    <Grid
             RowSpacing="10">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="0.8*"/>
-                <RowDefinition Height="5*"/>
-                <RowDefinition Height="0.65*"/>
-            </Grid.RowDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="0.8*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
 
-            <Border BackgroundColor="LightPink" Margin="10,5,10,5">
-                <CollectionView x:Name="CurrentTask" Margin="1">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="2" Background="AliceBlue" VerticalOptions="Fill">
-                                <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
-                                </StackLayout>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Border>
-            <Border Grid.Row="1" BackgroundColor="DarkSlateBlue" Margin="10,0,10,0" StrokeThickness="1">
-                <Grid>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="3*"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <Button Text="Создать заметку" FontSize="22" BackgroundColor="Transparent" CornerRadius="0" TextColor="White" Clicked="BtnCreateNoteClicked"/>
-                    <Button Grid.Column="1" Text="+" FontSize="40" CornerRadius="15" BackgroundColor="LightGreen" Clicked="BtnCreateQuickNoteClicked"/>
-                </Grid>
-            </Border>
-            <Border Grid.Row="2" Background="Aquamarine" Margin="10,5,10,5">
-                <Border.StrokeShape>
-                    <RoundRectangle CornerRadius="15" />
-                </Border.StrokeShape>
-                <CollectionView x:Name="OtherTasks">
-                    <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Border Margin="2" Background="AliceBlue">
-                                <StackLayout Margin="10, 5, 10 , 8">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" TextColor="DarkBlue"/>
-                                </StackLayout>
-                            </Border>
-                        </DataTemplate>
-                    </CollectionView.ItemTemplate>
-                </CollectionView>
-            </Border>
-
-            <Grid x:Name="MenuBtn" Grid.Row="3">
+        <!--<Border BackgroundColor="{AppThemeBinding Light={StaticResource mCrimson}, Dark={StaticResource mFireBrick}}" Margin="10,5,10,5" Padding="1,2,1,2">
+            <CollectionView x:Name="CurrentTask" Margin="1" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Key=miniBorder}">
+                            <StackLayout Margin="10, 5, 10 , 5">
+                                <Label Text="{Binding Header}" FontSize="16"/>
+                                <Label Text="{Binding DeadLine, StringFormat='{0:H:mm dd MMM yyyy}г.'}" FontSize="16"/>
+                                <Label Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
+                            </StackLayout>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>-->
+        <CollectionView x:Name="CurrentTask" Margin="1" SelectionChanged="CollectionView_SelectionChanged">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Border Style="{StaticResource Key=miniBorder}" Stroke="{AppThemeBinding Light={StaticResource mCrimson}, Dark={StaticResource mFireBrick}}" StrokeThickness="5" Margin="10,5,10,5">
+                        <Grid Margin="10, 5, 10 , 8">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Header}" FontSize="16"/>
+                            <Label Grid.Column="1" Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" FontSize="16" HorizontalOptions="End"/>
+                            <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}" Margin="0,10,0,0"/>
+                            <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalOptions="End" Margin="0,10,0,0"/>
+                        </Grid>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+        <Border Grid.Row="1" BackgroundColor="DarkSlateBlue" Margin="10,0,10,0" StrokeThickness="1">
+            <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
-                    <ColumnDefinition/>
+                    <ColumnDefinition Width="3*"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <Button
-                    Text="профиль"/>
-                <Button
-                    Text="дела"
-                    Grid.Column="1"
-                    Clicked="BtnTasksClicked"/>
-                <Button
-                    Text="основное меню"
-                    Grid.Column="2"/>
-                <Button
-                    Text="напоминания"
-                    Grid.Column="3"/>
-                <Button
-                    Text="заметки"
-                    Grid.Column="4"/>
+                <Button Text="Создать заметку" FontSize="22" BackgroundColor="Transparent" CornerRadius="0" TextColor="White" Clicked="BtnCreateNoteClicked"/>
+                <Button Grid.Column="1" Text="+" FontSize="40" CornerRadius="15" BackgroundColor="LightGreen" Clicked="BtnCreateQuickNoteClicked"/>
             </Grid>
-        </Grid>
-    </ScrollView>
-
+        </Border>
+        <Border Grid.Row="2" Background="{AppThemeBinding Light={StaticResource mAzure}, Dark={StaticResource Gray600}}" Margin="10,5,10,8" Padding="1,2,1,2">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15" />
+            </Border.StrokeShape>
+            <CollectionView x:Name="OtherTasks" SelectionChanged="CollectionView_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Key=miniBorder}">
+                            <Grid Margin="10, 5, 10 , 8">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition/>
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Header}" FontSize="16"/>
+                                <Label Grid.Column="1" Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" FontSize="16" HorizontalOptions="End"/>
+                                <Label Grid.Row="1" Text="{Binding ImportanceText, StringFormat='Важность: {0}'}"/>
+                                <Label  Text="{Binding IsCompletedText}" TextColor="Green" FontAttributes="Bold" Grid.Row="1" Grid.Column="1" HorizontalOptions="End"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+    </Grid>
 </ContentPage>

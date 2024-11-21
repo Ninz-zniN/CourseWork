@@ -47,7 +47,7 @@ public partial class EditTaskPage : ContentPage
                 importance = ImportanceOfTask.IMPORTANT;
                 break;
         }
-        WorkTask current = new WorkTask(Head.Text, Description.Text, DateDeadLine.Date.Add(TimeDeadLine.Time), importance);
+        WorkTask current = new WorkTask(Head.Text, Description.Text, DateDeadLine.Date.Add(TimeDeadLine.Time), importance,false);
         current.IsCompleted = Complete.BackgroundColor == Colors.Gray;
         if (workTask != current)
         {
@@ -64,6 +64,7 @@ public partial class EditTaskPage : ContentPage
     }
     private async void BtnDeleteClicked(object sender, EventArgs e)
     {
+        workTask.IsCompleted = true;
         MainPage.Tasks.Remove(this.workTask);
         await Navigation.PopModalAsync();
     }
@@ -72,12 +73,14 @@ public partial class EditTaskPage : ContentPage
         if (Complete.BackgroundColor == Colors.Green)
         {
             Complete.BackgroundColor = Colors.Gray;
-            Complete.Text = "Отменить выполнение";
+            Complete.FontSize = 11;
+            Complete.Text = "Отм.выполнения";
         }
         else
         {
             Complete.BackgroundColor = Colors.Green;
-            Complete.Text = "Выполнить дело";
+            Complete.FontSize = 16;
+            Complete.Text = "Выполнить";
         }
     }
 

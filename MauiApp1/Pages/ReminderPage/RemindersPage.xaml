@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.RemindersPage"
+             Title="RemindersPage"
+             Appearing="ContentPage_Appearing">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="9*"/>
+            <RowDefinition Height="94*"/>
+        </Grid.RowDefinitions>
+        <Border Style="{StaticResource Key=miniBorder}" Margin="6,4,6,4">
+            <SearchBar x:Name="searchBar" Unfocused="SearchBar_Unfocused" TextChanged="SearchBar_TextChanged"/>
+        </Border>
+        <Border Padding="2,4,2,4" Grid.Row="1">
+            <CollectionView x:Name="CollectionReminder" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Border Style="{StaticResource Key=miniBorder}">
+                            <Grid Margin="10, 5, 10 , 8">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                <Label Text="{Binding Header}" FontSize="16"/>
+                                <Label Grid.Row="1" Text="{Binding Description}" MaxLines="2" FontSize="16"/>
+                            </Grid>
+                        </Border>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </Border>
+        <Button Grid.Row="1" Clicked="Button_Clicked" Style="{StaticResource Key=BtnAdd}"/>
+    </Grid>
+</ContentPage>

@@ -20,16 +20,16 @@
         </Grid.RowDefinitions>
         <Border>
             <StackLayout>
-                <Border BackgroundColor="OrangeRed">
+                <Border BackgroundColor="{StaticResource mFireBrick}">
                     <Label Text="Срочно и важно"/>
                 </Border>
                 <CollectionView x:Name="ImportantUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
-                                <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                            <Border Style="{StaticResource miniBorder}" Margin="1">
+                                <StackLayout Margin="10, 2, 10 , 5">
+                                    <Label Text="{Binding Header}"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>
@@ -39,16 +39,16 @@
         </Border>
         <Border Grid.Column="1">
             <StackLayout>
-                <Border BackgroundColor="IndianRed">
+                <Border BackgroundColor="Gold">
                     <Label Text="Несрочно но важно"/>
                 </Border>
                 <CollectionView x:Name="ImportantNotUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
+                            <Border Style="{StaticResource miniBorder}" Margin="1">
                                 <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                                    <Label Text="{Binding Header}"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>
@@ -58,16 +58,16 @@
         </Border>
         <Border Grid.Row="1">
             <StackLayout>
-                <Border BackgroundColor="Bisque">
+                <Border BackgroundColor="RoyalBlue">
                     <Label Text="Срочно но неважно"/>
                 </Border>
                 <CollectionView x:Name="NotImportantUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
-                                <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                            <Border Style="{StaticResource miniBorder}" Margin="1">
+                                <StackLayout Margin="10, 2, 10 , 5">
+                                    <Label Text="{Binding Header}"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>
@@ -77,16 +77,16 @@
         </Border>
         <Border Grid.Column="1" Grid.Row="1">
             <StackLayout>
-                <Border BackgroundColor="Gray">
+                <Border BackgroundColor="{StaticResource mLightBlue}">
                     <Label Text="Несрочно и неважно"/>
                 </Border>
                 <CollectionView x:Name="NotImportantNotUrgent" SelectionMode="Single" SelectionChanged="CollectionTasks_SelectionChanged">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Border Background="AliceBlue" StrokeShape="{RoundRectangle CornerRadius=15}">
-                                <StackLayout Margin="10, 5, 10 , 5">
-                                    <Label Text="{Binding Header}" TextColor="DarkBlue" FontSize="16"/>
-                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}" TextColor="DarkBlue" FontSize="16"/>
+                            <Border Style="{StaticResource miniBorder}" Margin="1">
+                                <StackLayout Margin="10, 2, 10 , 5">
+                                    <Label Text="{Binding Header}"/>
+                                    <Label Text="{Binding DeadLine, StringFormat='{0:H:mm|dd MMM yyyy}г.'}"/>
                                 </StackLayout>
                             </Border>
                         </DataTemplate>

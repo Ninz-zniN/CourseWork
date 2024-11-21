@@ -2,12 +2,59 @@
 <ResourceDictionary xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="MauiApp1.Resources.Styles.CustomStyles">
-
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource mDarkBlue}, Dark={StaticResource White}}"/>
+        <Setter Property="FontSize" Value="16"/>
+    </Style>
+    <Style x:Key="HeaderLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource mDarkBlue}, Dark={StaticResource White}}"/>
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="FontAttributes" Value="Bold"/>
+        <Setter Property="HorizontalOptions" Value="Center"/>
+        <Setter Property="VerticalOptions" Value="Start"/>
+    </Style>
     <Style TargetType="Button">
         <Setter Property="CornerRadius" Value="5"/>
         <Setter Property="FontSize" Value="12"/>
     </Style>
     <Style TargetType="Border">
         <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=15}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAzure}, Dark={StaticResource mTransparent}}"/>
+        <Setter Property="Margin" Value="6,4,6,4"/>
     </Style>
+    <Style x:Key="miniBorder" TargetType="Border">
+        <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=12}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mPurple}, Dark={StaticResource Gray400}}"/>
+        <Setter Property="Margin" Value="1.5"/>
+    </Style>
+    <Style x:Key="HeadBorder" TargetType="Border">
+        <Setter Property="StrokeShape" Value="{RoundRectangle CornerRadius=12}"/>
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mPurpleHeader}, Dark={StaticResource Gray400}}"/>
+        <Setter Property="Margin" Value="0,5,0,5"/>
+    </Style>
+    <Style x:Key="BtnAdd" TargetType="Button">
+        <Setter Property="BackgroundColor" Value="#7ee0b9"/>
+        <Setter Property="FontSize" Value="26"/>
+        <Setter Property="CornerRadius" Value="180"/>
+        <Setter Property="Margin" Value="0,0,15,15"/>
+        <Setter Property="Text" Value="+"/>
+        <Setter Property="WidthRequest" Value="70"/>
+        <Setter Property="HeightRequest" Value="70"/>
+        <Setter Property="VerticalOptions" Value="End"/>
+        <Setter Property="HorizontalOptions" Value="End"/>
+    </Style>
+    <Style TargetType="SearchBar">
+        <Setter Property="TextColor" Value="{AppThemeBinding Light={StaticResource Gray900}, Dark={StaticResource White}}" />
+        <Setter Property="Placeholder" Value="Поиск"/>
+        <Setter Property="PlaceholderColor" Value="{AppThemeBinding Light={StaticResource Gray500}, Dark={StaticResource Gray100}}" />
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="CancelButtonColor" Value="{StaticResource Gray500}" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+    </Style>
+    <!--<Style TargetType="Shell">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAliceBlue}, Dark={StaticResource OffBlack}}"/>
+    </Style>
+    <Style TargetType="Page">
+        <Setter Property="BackgroundColor" Value="{AppThemeBinding Light={StaticResource mAliceBlue}, Dark={StaticResource OffBlack}}"/>
+    </Style>-->
 </ResourceDictionary>

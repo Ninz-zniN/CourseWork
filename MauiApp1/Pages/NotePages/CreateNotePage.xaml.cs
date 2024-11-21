@@ -11,11 +11,10 @@ public partial class CreateNotePage : ContentPage
 
     private void Update()
     {
-        var list = new List<string>(MainPage.Groups) { "Добавить группу" };
-        GroupPicker.ItemsSource=null;
-        ColorPicker.ItemsSource=null;
-        GroupPicker.ItemsSource = list;
-        ColorPicker.ItemsSource = new List<string>(MainPage.ColorsDict.Keys);
+        GroupPicker.ItemsSource = null;
+        ColorPicker.ItemsSource = null;
+        GroupPicker.ItemsSource = new List<string>(["Нет группы", .. MainPage.Groups, "Добавить группу"]);
+        ColorPicker.ItemsSource = new List<string>(["Нет цвета", .. MainPage.ColorsDict.Keys]);
     }
 
     private async void BtnExitClicked(object sender, EventArgs e)
@@ -27,13 +26,20 @@ public partial class CreateNotePage : ContentPage
     {
         if (MainPage.ColorsDict.ContainsKey((string)ColorPicker.SelectedItem))
             ColorPicker.BackgroundColor = MainPage.ColorsDict[(string)ColorPicker.SelectedItem];
+        else
+            ColorPicker.BackgroundColor = Colors.Transparent;
     }
 
     private async void BtnSaveClicked(object sender, EventArgs e)
     {
         if ((Head.Text == string.Empty) || (Head.Text==null))
             Head.Text = DateTime.Now.ToString("H:mm  dd MMM");
-        MainPage.Notes.Add(new Note(Head.Text, Description.Text, ColorPicker.BackgroundColor, (string)GroupPicker.SelectedItem));
+        string group;
+        if (GroupPicker.SelectedItem == null || GroupPicker.SelectedItem.ToString()=="Нет группы")
+            group = string.Empty;
+        else
+            group = (string)GroupPicker.SelectedItem;
+        MainPage.Notes.Add(new Note(Head.Text, Description.Text, ColorPicker.BackgroundColor, group));
         await Navigation.PopModalAsync();
     }
 

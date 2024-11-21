@@ -10,11 +10,11 @@ public partial class CreateTaskPage : ContentPage
 		InitializeComponent();
 		DateDeadLine.MinimumDate = DateTime.Now;
 	}
-	private async void BtnExitClicked(object sender, EventArgs e)
+	private void BtnExitClicked(object sender, EventArgs e)
 	{
-		await Navigation.PopModalAsync();
+		Close();
 	}
-	private async void BtnSaveClicked(object sender, EventArgs e)
+	private void BtnSaveClicked(object sender, EventArgs e)
 	{
 		ImportanceOfTask importance = ImportanceOfTask.NOTIMPORTANT;
 		switch (rb)
@@ -30,9 +30,13 @@ public partial class CreateTaskPage : ContentPage
 				break;
 		}
 		MainPage.Tasks.Add(new WorkTask(Head.Text, Description.Text, DateDeadLine.Date.Add(TimeDeadLine.Time), importance));
+        
+        Close();
+    }
+    private async void Close()
+    {
         await Navigation.PopModalAsync();
     }
-
     private void RadioButton_CheckedChanged(object sender, CheckedChangedEventArgs e)
     {
 		rb = (string)((RadioButton)sender).Content;

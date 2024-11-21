@@ -16,49 +16,7 @@ public partial class NotesPage : ContentPage
         FilterGroup.ItemsSource = filters;
         FilterGroup.SelectedIndex = 0;
     }
-    private void NoFilter()
-    {
-        List<Note> col = new List<Note>(MainPage.Notes);
-        col.Reverse();
-        var collection1 = new List<Note>();
-        var collection2 = new List<Note>();
-        for (int i = 0; i < col.Count; i++)
-        {
-            if (i % 2 == 0)
-                collection1.Add(col[i]);
-            else
-                collection2.Add(col[i]);
-        }
-        CollectionNotes.ItemsSource = collection1;
-        CollectionNotes1.ItemsSource = collection2;
-    }
-    private void Filter(string filterName="")
-    {
-        List<Note> col = new List<Note>(MainPage.Notes);
-        col.Reverse();
-        Sort(ref col, filterName);
-        var collection1 = new List<Note>();
-        var collection2 = new List<Note>();
-        for (int i = 0; i < col.Count; i++)
-        {
-            if (i % 2 == 0)
-                collection1.Add(col[i]);
-            else
-                collection2.Add(col[i]);
-        }
-        CollectionNotes.ItemsSource = collection1;
-        CollectionNotes1.ItemsSource = collection2;
-    }
-    private void Sort(ref List<Note> list, string sort)
-    {
-        List<Note> sortedList = new List<Note>();
-        for (int i = 0; i < list.Count; i++)
-        {
-            if (list[i].Group == sort)
-                sortedList.Add(list[i]);
-        }
-        list = sortedList;
-    }
+    
 
     private async void CollectionNotes_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
@@ -69,11 +27,16 @@ public partial class NotesPage : ContentPage
             await Navigation.PushModalAsync(new EditNotePage(note));
         }
     }
-
-    private void FilterGroup_SelectedIndexChanged(object sender, EventArgs e)
+    private void FilterGroup_SelectedIndexChanged(object sender, EventArgs e) => DataLoad();
+    private void SearchBar_TextChanged(object sender, TextChangedEventArgs e) => DataLoad();
+    private void DataLoad()
+    {
+        FilterControl();
+        Searching();
+    }
+    private void FilterControl()
     {
         CollectionNotes.ItemsSource = null;
-        CollectionNotes1.ItemsSource = null;
         switch ((string)FilterGroup.SelectedItem)
         {
             case "Нет фильтра":
@@ -87,7 +50,30 @@ public partial class NotesPage : ContentPage
                 break;
         }
     }
+    private void NoFilter()
+    {
+        List<Note> col = new List<Note>(MainPage.Notes);
+        col.Reverse();
+        CollectionNotes.ItemsSource = col;
+    }
+    private void Filter(string filterName="")
+    {
+        List<Note> col = new List<Note>(MainPage.Notes);
+        col.Reverse();
+        CollectionNotes.ItemsSource = col.FindAll(x=>x.Group==filterName);
+    }
+    private void Searching()
+    {
+        if (!(searchBar.Text == null || searchBar.Text.Length == 0))
+            CollectionNotes.ItemsSource = ((List<Note>)CollectionNotes.ItemsSource).FindAll(x => x.Header.ToLower().Contains(searchBar.Text.ToLower(),StringComparison.OrdinalIgnoreCase));
+    }
 
     private async void BtnAddCLicked(object sender, EventArgs e) => await Navigation.PushModalAsync(new CreateNotePage());
     private async void BtnGroupClicked(object sender, EventArgs e) => await Navigation.PushModalAsync(new EditGroupPage(),false);
+
+    private async void SearchBar_Unfocused(object sender, FocusEventArgs e)
+    {
+        if (searchBar.IsSoftInputShowing())
+            await searchBar.HideSoftInputAsync(System.Threading.CancellationToken.None);
+    }
 }

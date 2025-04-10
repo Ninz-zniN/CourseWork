@@ -24,6 +24,7 @@
             <ShellContent Title="Матрица эйзенхауэра" ContentTemplate="{DataTemplate local:MatrixEisenhowerPage}"/>
         </Tab>
         <ShellContent Title="Заметки" ContentTemplate="{DataTemplate local:NotesPage}"/>
+        <ShellContent Title="Тренировка памяти" ContentTemplate="{DataTemplate local:SelectPage}"/>
     </TabBar>
 
 </Shell>

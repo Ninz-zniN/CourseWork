@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.Challenge"
+             Title="Challenge">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!-- Полоса таймера -->
+        <BoxView x:Name="TimerBar" Grid.Row="1" BackgroundColor="#FF4081" WidthRequest="300" HeightRequest="15" />
+
+        <!-- Таймер -->
+        <Label x:Name="TimerLabel" Grid.Row="0" Text="30" FontSize="50" HorizontalTextAlignment="Center" VerticalOptions="Center"/>
+
+
+        <Label x:Name="HelperLabel" FontSize="23" Text="Запомните текущее число:" Grid.Row="2"/>
+        <Label x:Name="NumberLabel" FontSize="23" Grid.Row="3" HorizontalOptions="Center"/>
+
+        <Border StrokeThickness="1" Stroke="Black" Margin="8" Grid.Row="4">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="15" />
+            </Border.StrokeShape>
+            <Entry x:Name="NumberEntry" Background="Bisque" IsEnabled="False"/>
+        </Border>
+
+        <Button Text="Далее" Grid.Row="5" Clicked="Button_Clicked" Margin="10" FontSize="22"/>
+    </Grid>
+</ContentPage>

@@ -36,7 +36,7 @@
         </Border>
         <Border Grid.Row="3" Margin="10,2,10,2">
             <HorizontalStackLayout VerticalOptions="Center" Margin="15,0,0,0">
-                <Label Text="Крайняя дата сдачи" VerticalOptions="Center" FontSize="18"/>
+                <Label Text="Дата выполнения" VerticalOptions="Center" FontSize="18"/>
                 <DatePicker x:Name="DateDeadLine" Margin="8,0,2,0" VerticalOptions="Start" FontSize="18" Grid.Column="1"/>
                 <TimePicker x:Name="TimeDeadLine" VerticalOptions="Start" FontSize="18" Grid.Column="2"/>
             </HorizontalStackLayout>

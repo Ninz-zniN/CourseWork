@@ -14,12 +14,12 @@ namespace MauiApp1
     {
         public static readonly string JsonFileName = "DataJson";
 
-        public static int LastIdNotification = 1;
+        public static int LastIdNotification;//= 1;
         static List<WorkTask> tasks = new List<WorkTask>();
         static List<Note> notes = new List<Note>();// { new Note("") { Header="лен"}, new Note("") { Header = "ален" }, new Note("") { Header = "ЛенЬ" }, new Note("") { Header = "Арбуз" }, new Note("") { Header = "лин" } };
         static Dictionary<string, Color> colorsDict= new Dictionary<string, Color> { { "красный", Colors.Red }, { "зеленый", Colors.Green }, { "синий", Colors.Blue } };
-        static List<string> groups = new List<string>();//= new List<string>{ "da", "da1", "da2" };
-        static List<Reminder> reminders = new List<Reminder>();//= new List<Reminder>() { new Reminder("ам ам ам", "am am am am am")};
+        static List<string> groups;//= new List<string>{ "da", "da1", "da2" };
+        static List<Reminder> reminders;//= new List<Reminder>() { new Reminder("ам ам ам", "am am am am am")};
         public static List<WorkTask> Tasks { get { return tasks; } }
         public static List<Note> Notes { get { return notes; } }
         public static Dictionary<string, Color> ColorsDict { get { return colorsDict; } }
@@ -39,7 +39,37 @@ namespace MauiApp1
             //string json = JsonSerializer.Serialize(tasks) + JsonSerializer.Serialize(notes) + JsonSerializer.Serialize(groups) + JsonSerializer.Serialize(reminders);
             ImportDataFromJson();
             FindMostImportantTask();
-            
+        }
+        private async void ImportDataFromJson()
+        {
+            var appStorage = FileSystem.Current.AppDataDirectory;
+            string[] fPath = 
+            { 
+                Path.Combine(appStorage, JsonFileName + "LastIdNotification"), 
+                Path.Combine(appStorage, JsonFileName + "Tasks"),
+                Path.Combine(appStorage, JsonFileName + "Notes"),
+                Path.Combine(appStorage, JsonFileName + "Groups"),
+                Path.Combine(appStorage, JsonFileName + "Reminders")
+            };
+            try
+            {
+                if (File.Exists(fPath[0]))
+                {
+                    LastIdNotification = JsonSerializer.Deserialize<int>(File.OpenRead(fPath[0]));
+
+                    tasks = JsonSerializer.Deserialize<List<WorkTask>>(File.OpenRead(fPath[1]));
+
+                    notes = JsonSerializer.Deserialize<List<Note>>(File.OpenRead(fPath[2]));
+
+                    groups = JsonSerializer.Deserialize<List<string>>(File.OpenRead(fPath[3]));
+
+                    reminders = JsonSerializer.Deserialize<List<Reminder>>(File.OpenRead(fPath[4]));
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("ОШИБКА", $"Не удалось импортировать данные. ошибка: {ex.Message}", "ОК");
+            }
         }
         private async void ImportDataFromJson()
         {

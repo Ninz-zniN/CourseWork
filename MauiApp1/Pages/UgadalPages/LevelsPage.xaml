@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiApp1.LevelsPage"
+             Title="LevelsPage">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="3.5*"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Label Text="Выберите уровень" FontSize="24" HorizontalOptions="Center" VerticalOptions="Center"/>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="1" Clicked="Button_Clicked" Margin="8" FontSize="26"/>
+            <Button Text="2" Grid.Column="1" Margin="8" FontSize="26"/>
+            <Button Text="3" Grid.Column="2" Margin="8" FontSize="26"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Button Text="4" Margin="8" FontSize="26"/>
+        </Grid>
+        <Button Text="Назад" Clicked="Button_Clicked_1" Grid.Row="4" Margin="10" FontSize="22"/>
+    </Grid>
+</ContentPage>

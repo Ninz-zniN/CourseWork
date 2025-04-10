@@ -71,6 +71,37 @@ namespace MauiApp1
                 await DisplayAlert("ОШИБКА", $"Не удалось импортировать данные. ошибка: {ex.Message}", "ОК");
             }
         }
+        private async void ImportDataFromJson()
+        {
+            var appStorage = FileSystem.Current.AppDataDirectory;
+            string[] fPath = 
+            { 
+                Path.Combine(appStorage, JsonFileName + "LastIdNotification"), 
+                Path.Combine(appStorage, JsonFileName + "Tasks"),
+                Path.Combine(appStorage, JsonFileName + "Notes"),
+                Path.Combine(appStorage, JsonFileName + "Groups"),
+                Path.Combine(appStorage, JsonFileName + "Reminders")
+            };
+            try
+            {
+                if (File.Exists(fPath[0]))
+                {
+                    LastIdNotification = JsonSerializer.Deserialize<int>(File.OpenRead(fPath[0]));
+
+                    tasks = JsonSerializer.Deserialize<List<WorkTask>>(File.OpenRead(fPath[1]));
+
+                    notes = JsonSerializer.Deserialize<List<Note>>(File.OpenRead(fPath[2]));
+
+                    groups = JsonSerializer.Deserialize<List<string>>(File.OpenRead(fPath[3]));
+
+                    reminders = JsonSerializer.Deserialize<List<Reminder>>(File.OpenRead(fPath[4]));
+                }
+            }
+            catch (Exception ex)
+            {
+                await DisplayAlert("ОШИБКА", $"Не удалось импортировать данные. ошибка: {ex.Message}", "ОК");
+            }
+        }
         private void FindMostImportantTask()
         {
             if (tasks.Count != 0)

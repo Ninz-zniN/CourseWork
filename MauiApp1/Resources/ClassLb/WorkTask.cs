@@ -111,7 +111,7 @@ namespace MauiApp1.Resources.ClassLb
         {
             if (!isCompleted)
             {
-                if (notificationID != -1)
+                if (notificationID != -1) //если уже есть уведомление то мы отменяем его и делаем новое
                 {
                     LocalNotificationCenter.Current.Cancel(notificationID);
                 }
@@ -123,7 +123,7 @@ namespace MauiApp1.Resources.ClassLb
                     Description = $"Вы не успели выполнить задачу: {Header}",
                     BadgeNumber = 1,
                     CategoryType = NotificationCategoryType.Reminder,
-                    Schedule = new NotificationRequestSchedule()
+                    Schedule = new NotificationRequestSchedule() //дата уведомления
                     {
                         NotifyTime = DeadLine
                     },
@@ -138,7 +138,7 @@ namespace MauiApp1.Resources.ClassLb
             }
             else
             {
-                LocalNotificationCenter.Current.Cancel(notificationID);
+                LocalNotificationCenter.Current.Cancel(notificationID);//Если задача выполнена мы отменяем уведомление
                 notificationID = -1;
             }
         }
